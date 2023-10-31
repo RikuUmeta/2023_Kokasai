@@ -17,6 +17,9 @@ public class DeadWallController : MonoBehaviour
     //テキストを格納する変数
     public GameObject text;
 
+    public GameObject StageAudio;
+    public GameObject GameOverAudio;
+
     //ゲームオーバー判定
     private bool isGameOver = false;
 
@@ -53,6 +56,9 @@ public class DeadWallController : MonoBehaviour
             player.GetComponent<UnityChanControlScriptWithRgidBody>().enabled = false;
             //アニメーションをオフにする
             player.GetComponent<Animator>().enabled = false;
+
+            StageAudio.SetActive(false);
+            GameOverAudio.SetActive(true);
 
             //ゲームオーバー
             isGameOver = true;

@@ -12,6 +12,9 @@ public class EnemyHitController : MonoBehaviour
     //RestartManager型
     private RestartManager restart;
 
+    public GameObject StageAudio;
+    public GameObject GameOverAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,8 @@ public class EnemyHitController : MonoBehaviour
         if (other.gameObject.name == player.name)
         {
             restart.PrintGameOver();
+            StageAudio.SetActive(false);
+            GameOverAudio.SetActive(true);
         }
     }
 }

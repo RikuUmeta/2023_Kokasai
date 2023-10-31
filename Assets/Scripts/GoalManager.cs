@@ -20,6 +20,10 @@ public class GoalManager : MonoBehaviour
 
     public GameObject GoalAudio;
 
+    public GameObject DeadWall;
+
+    public string stage;
+
     //Goalしたかどうか判定する
     private bool isGoal = false;
 
@@ -44,6 +48,7 @@ public class GoalManager : MonoBehaviour
             enemy.SetActive(false);
             time.SetActive(false);
             Audio.SetActive(false);
+            DeadWall.SetActive(false);
             GoalAudio.SetActive(true);
         }
     }
@@ -55,7 +60,7 @@ public class GoalManager : MonoBehaviour
         if (other.name == player.name)
         {
             //テキストの内容を変更する
-            text.GetComponent<Text>().text = "Goal!!!\n画面クリックで再スタート";
+            text.GetComponent<Text>().text = "Goal!!!\n画面クリックで"+ stage + "へ";
             //テキストをオンにして非表示→表示にする
             text.SetActive(true);
 
@@ -71,6 +76,6 @@ public class GoalManager : MonoBehaviour
         // 現在のScene名を取得する
         Scene loadScene = SceneManager.GetActiveScene();
         // Sceneの読み直し
-        SceneManager.LoadScene(loadScene.name);
+        SceneManager.LoadScene(stage);
     }
 }

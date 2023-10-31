@@ -11,6 +11,9 @@ public class DropManager : MonoBehaviour
 
     public GameObject timer;
 
+    public GameObject StageAudio;
+    public GameObject GameOverAudio;
+
     //RestartManager型
     private RestartManager restart;
 
@@ -28,6 +31,8 @@ public class DropManager : MonoBehaviour
         {
             restart.PrintGameOver();
             timer.SetActive(false);
+            StageAudio.SetActive(false);
+            GameOverAudio.SetActive(true);
         }
 
         if (restart.IsGameOver() && Input.GetMouseButton(0))
