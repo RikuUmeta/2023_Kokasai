@@ -14,6 +14,9 @@ public class TimeManager : MonoBehaviour
     //ユニティちゃん格納用
     public GameObject player;
 
+    public GameObject StageAudio;
+    public GameObject GameOverAudio;
+
     //RestartManager型
     private RestartManager restart;
 
@@ -41,6 +44,8 @@ public class TimeManager : MonoBehaviour
         {
             //RestartManagerに処理を任せる
             restart.PrintGameOver();
+            StageAudio.SetActive(false);
+            GameOverAudio.SetActive(true);
 
             //ここでUpdateメソッドを終わらせる
             return;
